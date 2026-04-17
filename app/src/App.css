@@ -38,6 +38,9 @@
 }
 
 .contain {
+  margin-top: 5%;
+  border: dashed 1px black;
+  background-color: rgba(255, 255, 255, 0.4);
   width: 100%;
   font-size: 40px;
   text-align: center;
@@ -48,19 +51,29 @@ p {
 }
 
 button {
+  cursor: pointer;
+  padding: 1% 1%;
   scale: 1.25;
   margin: 2%;
   border-radius: 16px;
   color: black;
+  transition-duration: 0.3s;
 }
 
 .increase {
   background-color: rgb(119, 255, 119);
+}
 
+.increase:hover {
+  background-color: limegreen;
 }
 
 .decrease {
   background-color: rgb(255, 143, 143);
+}
+
+.decrease:hover {
+  background-color: red;
 }
 
 .limit {

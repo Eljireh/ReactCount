@@ -12,40 +12,37 @@ function Displayer() {
   let color = '';
   let limit_text = "";
 
+  function increment() {
+    setCount((count) => count+1);
+  }
+
+  function decrement() {
+    setCount((count) => count-1);
+  }
+
   if (count >= 13) {
     color = 'rgb(255, 255, 255)';
     limit_text = "Couleur maximale atteinte";
   }
 
-  if (count == 0) {
+  if (count < 13 && count > 0) {
+    color = ('rgb(255,255,' + String(count*20) + ')');
+  }
+
+  else if (count === 0) {
     color = 'rgb(255, 255, 0)';
   }
 
-  if (count <= -13) {
+  else if (count < 0 && count > - 13) {
+    color = ('rgb(255,' + String(255 - Math.abs(count*20)) + ', 0)');
+  }
+
+  else if (count <= -13) {
     color = 'rgb(255, 0, 0)';
     limit_text = "Couleur minimale atteinte";
   }
 
-  function increment() {
-    setCount(count+1);
-    if (count < 13 && count > 0) {
-      color = ('rgb(255,255,' + String(count*20) + ')');
-    }
-    if (count < 0 && count > - 13) {
-      color = ('rgb(255,' + String(255 - Math.abs(count*20)) + ', 0)');
-    }
-    document.body.style.backgroundColor = color;  
-  }
-  function decrement() {
-    setCount(count-1);
-    if (count < 13 && count > 0) {
-      color = ('rgb(255, 255,' + String(count*20) + ')');
-    }
-    if (count < 0 && count > - 13) {
-      color = ('rgb(255,' + String(255 - Math.abs(count*20)) + ', 0)');
-    }
-    document.body.style.backgroundColor = color;
-  }
+  document.body.style.backgroundColor = color;
 
   return (
     <div className='contain'>
